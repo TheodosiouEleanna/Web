@@ -13,7 +13,7 @@ include_once 'header.php'
          <div id="text">Enter the date you were diagnosed with covid-19:</div>
          <div class="input-boxes">
             <div  class="input-box">
-               <input type="date" value="2022-02-21" id="covidDate" name="covidDate">
+               <input type="date" value="2022-08-27" id="covidDate" name="covidDate">
             </div>
             <div class="input-box">
                <button class = "btn" type="submit"  name="sumbit-new" >Submit</button>

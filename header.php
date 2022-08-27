@@ -26,7 +26,18 @@
       <ul class="nav-links">
          <li><a href="adminHome.php">Home</a></li>
          <li><a  href="maps.php">Maps</a></li>
-         <div class='role'></div>
+        <?php 
+         if ($_SESSION["role"] == 0){
+            echo  "<li><a  href='visitation.php'>visits</a></li>";
+            echo "<li><a  href='covidCase.php'>covid case</a></li>";
+            echo "<li><a href='profile.php'>Profile</a></li>";
+         }
+         else{
+            echo "<li><a href='uploadData.php'>Upload Data</a></li>";
+            echo "<li><a href='graphs.php'>Graphs</a></li>";
+            echo "<li><a href='profile.php'>Profile </a></li>";
+         }
+         ?>
          <li><a href='includes/logout.inc.php'>Log Out</a></li>
       </ul> 
       <label id="icon">
