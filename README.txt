@@ -1,8 +1,1 @@
-TO DO:
-*login register with ajax
-
-*fix profile manage and password check
-
-*fix autocomplete to chose specific poi 
-
-*fix sumbit on visit
+Web app for tracking population data and repesenting live traffic of points of interest on a map. Also capturing possible contact with Covid cases for visitors. Login system, visit and Covid case registration. AJAX PHP. Developped for Web programming and World Wide Web systems University course.
