@@ -22,6 +22,7 @@ include_once 'header.php'
          </div>
          </div>
       </form>
+      <div class='container'>Visits</div>
    </div>
    <script src="scripts/covidCase.js"></script>
 </body>

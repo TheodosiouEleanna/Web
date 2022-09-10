@@ -1,5 +1,16 @@
 <?php
 
+function emptyInputSignup($username, $email, $password, $cpassword){
+   $result;
+   if (empty($username) || empty($email) || empty($password) || empty($cpassword)) {
+      $result = TRUE;
+   }
+   else {
+      $result = FALSE;
+   }
+   return $result;
+}
+
 function invalidUsername($username){
    $result;
    //The preg_match() function returns whether a match was found in a string.

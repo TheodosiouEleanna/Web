@@ -28,7 +28,6 @@ const getDateTime = () => {
 
 const checkForFutureDate = (date) => {
   const current_date = new Date();
-  console.log(current_date);
   if (date > current_date) {
     console.log(current_date, date > current_date);
     return true;
@@ -38,14 +37,15 @@ const checkForFutureDate = (date) => {
 };
 
 const isDifGreaterThan14 = (declarationDate, previousDate) => {
+  const convertedDbDate = new Date(previousDate);
   //14 days have passed?
-  const diffInMs = declarationDate - previousDate;
+  const diffInMs = declarationDate - convertedDbDate;
   const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
   console.log("diff", diffInDays);
-  if (diffInDays >= 14 || diffInDays <= 0 || diffInDays === NaN) {
-    return true;
-  } else {
+  if (diffInDays <= 14 || diffInDays <= 0 || diffInDays === NaN) {
     return false;
+  } else {
+    return true;
   }
 };
 
@@ -59,41 +59,39 @@ $(document).ready(function () {
       url: "includes/date.inc.php",
       method: "GET",
       success: function (dBdata) {
-        const obj = JSON.parse(dBdata);
+        const dataObj = JSON.parse(dBdata);
+        console.log(dataObj);
+
         const convertedDeclarationDate = new Date(declarationDate);
-        const convertedDbDate = new Date(obj.covid_date);
 
-        console.log({ obj, convertedDeclarationDate, convertedDbDate });
-        let diifGreaterThan14 = false;
-        if (obj !== false) {
-          const current_date = new Date();
-          console.log(current_date);
-          const diifGreaterThan14 = isDifGreaterThan14(
-            convertedDeclarationDate,
-            convertedDbDate || current_date
-          );
-          console.log({ diifGreaterThan14 }, typeof declarationDate);
-        }
         const isFutureDate = checkForFutureDate(convertedDeclarationDate);
-        if (isFutureDate) {
-          alert("You cannot enter a future date!");
-        } else if (diifGreaterThan14) {
-          console.log("difference true");
 
-          alert(
-            "It has not been 14 days since your last declaration or date is too old!"
+        if (dataObj.length) {
+          const hasRecentCase = dataObj.some(
+            (item) =>
+              isDifGreaterThan14(convertedDeclarationDate, item.covid_date) ===
+              false
           );
-        } else if (
-          confirm("Are you sure you want to declare your covid Case?")
-        ) {
-          const post = $.ajax({
-            url: "includes/covidCaseDeclaration.inc.php",
-            method: "POST",
-            data: { date: declarationDate },
-            success: function (response) {
-              console.log(response);
-            },
-          });
+          console.log({ hasRecentCase }, typeof declarationDate);
+          if (isFutureDate) {
+            alert("You cannot enter a future date!");
+          } else if (hasRecentCase) {
+            alert(
+              "It has not been 14 days since your last declaration or date is too old!"
+            );
+          } else if (
+            confirm("Are you sure you want to declare your covid Case?")
+          ) {
+            const post = $.ajax({
+              url: "includes/covidCaseDeclaration.inc.php",
+              method: "POST",
+              data: { date: declarationDate },
+              success: function (response) {
+                console.log(response);
+                alert("Your case was successfully registered!");
+              },
+            });
+          }
         }
       },
     });

@@ -14,7 +14,7 @@ const checkForLogin = (username, password) => {
           if (message == "User!") {
             window.location.href = "index.php";
           } else {
-            window.location.href = "adminHome.php";
+            window.location.href = "home.php";
           }
         }
       },
