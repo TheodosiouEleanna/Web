@@ -25,7 +25,7 @@ function checkForCovidCase($conn, $user_id) {
       array_push($results, array('user_id'=>$row['user_id'], 'covid_date'=>$row['covid_date']));
    }
    return $results;
-    mysqli_stmt_close($stmt);
+   mysqli_stmt_close($stmt);
 }
 
 $casesResult = checkForCovidCase($conn, $user_id);

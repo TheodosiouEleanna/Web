@@ -4,7 +4,7 @@ session_start();
 
 $userId = $_SESSION['id'];
 $declarationDate = $_POST['date'];
-$result = date('Y-m-d', strtotime($declarationDate));
+$result = date('Y-m-d h:i:s', strtotime($declarationDate));
 
 $d = gettype($declarationDate);
 $i = gettype($userId);

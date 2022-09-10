@@ -14,13 +14,9 @@ const getDateTime = () => {
   if (day.toString().length == 1) {
     day = "0" + day;
   }
-  var dateTime = year + "-" + month + "-" + day;
-  // + " " + hour;
-  //  +
-  // ":" +
-  // minute +
-  // ":" +
-  // seconds +
+  var dateTime =
+    year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + seconds;
+  // +
   // "" +
   // miliseconds;
   return dateTime;
@@ -53,7 +49,8 @@ $(document).ready(function () {
   $(".btn").on("click", function (e) {
     e.preventDefault();
 
-    const declarationDate = document.getElementById("covidDate").value;
+    const declarationDate =
+      document.getElementById("covidDate").value.replace("T", " ") + ":00";
     console.log(declarationDate);
     $.ajax({
       url: "includes/date.inc.php",
@@ -63,7 +60,7 @@ $(document).ready(function () {
         console.log(dataObj);
 
         const convertedDeclarationDate = new Date(declarationDate);
-
+        console.log({ convertedDeclarationDate });
         const isFutureDate = checkForFutureDate(convertedDeclarationDate);
 
         if (dataObj.length) {
@@ -85,7 +82,7 @@ $(document).ready(function () {
             const post = $.ajax({
               url: "includes/covidCaseDeclaration.inc.php",
               method: "POST",
-              data: { date: declarationDate },
+              data: { date: declarationDate.replace("T", " ") },
               success: function (response) {
                 console.log(response);
                 alert("Your case was successfully registered!");
