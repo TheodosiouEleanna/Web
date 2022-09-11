@@ -37,11 +37,17 @@
 //     }
 //   },
 // });
+$(document).ready(() => {
+  const home = document.getElementsByClassName("home");
+  console.log(home, home.classList);
+  home.className += "active";
+});
 
 const navToggle = document.querySelector("#icon");
 const links = document.querySelector(".nav-links");
 
 const currentLocation = location.href;
+
 const menuItems = document.querySelectorAll("a");
 const menuLength = menuItems.length;
 

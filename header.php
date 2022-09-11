@@ -24,7 +24,7 @@
    <nav>
       <label class="logo">Covid Maps</label>
       <ul class="nav-links">
-         <li><a class='active' href="home.php">Home</a></li>
+         <li><a class="active" href="home.php">Home</a></li>
          <li><a  href="maps.php">Maps</a></li>
         <?php 
          if ($_SESSION["role"] == 0){
