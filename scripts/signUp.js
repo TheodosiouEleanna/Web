@@ -9,6 +9,7 @@ const checkForSignUp = (username, email, password, cpassword) => {
         username: username,
         email: email,
         password: password,
+        
         cpassword: cpassword,
       },
       success: (response) => {
