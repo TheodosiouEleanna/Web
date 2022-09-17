@@ -28,6 +28,3 @@
       </form>
    </div>
    <script type="text/javascript" src = "scripts/login.js"></script>
-<?php 
-include_once 'footer.php'
-?>

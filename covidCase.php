@@ -22,10 +22,11 @@ include_once 'header.php'
             </div>
          </div>
          </div>
+         <button class="but">ClickMe</button>
       </form>
    </div>
    <script src="scripts/covidCase.js"></script>
-   <script src="scripts/randomVisits.js"></script>
+   <script src="scripts/randomCovidCases.js"></script>
 </body>
 <?php 
 include_once 'footer.php'

@@ -32,5 +32,10 @@ include_once 'header.php'
 			</table>
 		</div>
 	</div>
-<button class='but'>button</button>
+<button class='but'>random visits button</button>
 </div>
+   <script src="scripts/randomVisits.js"></script>
+</body>
+<?php 
+include_once 'footer.php'
+?>

@@ -1,3 +1,23 @@
+const convertDateTime = (date) => {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var seconds = date.getSeconds();
+  var miliseconds = date.getMilliseconds();
+  if (month.toString().length == 1) {
+    month = "0" + month;
+  }
+  if (day.toString().length == 1) {
+    day = "0" + day;
+  }
+  var dateTime =
+    year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + seconds;
+  return dateTime;
+};
+const deg2rad = (deg) => (deg * Math.PI) / 180.0;
+
 const getDistance = (lat1, lon1, lat2, lon2) => {
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(lat2 - lat1); // deg2rad below
@@ -86,23 +106,66 @@ $(document).ready(function () {
       },
     });
     poisRequest.done(() => {
-      const arrayOfDates = usersArray.map((user) => {
-        return randomDateTime(new Date(2022, 06, 1), new Date());
+      userIds.forEach((id) => {
+        const arrayOfDates = usersArray.map((user) => {
+          return convertDateTime(
+            randomDateTime(new Date(2022, 06, 1), new Date())
+          );
+        });
+
+        console.log({ arrayOfDates });
+
+        const firstPoi = pois[Math.floor(Math.random() * pois.length)];
+        console.log(firstPoi);
+
+        const poisInRange = usersArray.map((user, i) => {
+          const poiInRange = pois.find(
+            (item) =>
+              getDistance(
+                firstPoi.loc.lat,
+                firstPoi.loc.lng,
+                item.loc.lat,
+                item.loc.lng
+              ) <= 0.2
+          );
+          return poiInRange;
+        });
+        const newSet = [...new Set(poisInRange), firstPoi];
+        console.log({ newSet });
+
+        const poiInRange = pois.find(
+          (item) =>
+            getDistance(
+              firstPoi.loc.lat,
+              firstPoi.loc.lng,
+              item.loc.lat,
+              item.loc.lng
+            ) <= 0.2
+        );
+
+        randomVisits = newSet.map((item, index) => {
+          console.log({ poiInRange });
+          return {
+            poi_id: item.id,
+            user_id: id.id,
+            poi_name: item.name,
+            lat: item.loc.lat,
+            lng: item.loc.lng,
+            visit_date: arrayOfDates[index],
+            estimate: Math.floor(Math.random() * 50) + 1,
+          };
+        });
+        console.log({ randomVisits });
+
+        $.ajax({
+          type: "POST",
+          url: "includes/randomVisits.inc.php",
+          data: { visitsArray: randomVisits },
+          success: function (data) {
+            console.log({ data }, "done");
+          },
+        });
       });
-      console.log({ arrayOfDates });
-      const selectedPoi = pois[Math.floor(Math.random() * pois.length)];
-      console.log(selectedPoi);
-      randomVisits = usersArray.map((user, index) => {
-        return {
-          poi_id: selectedPoi.id,
-          user_id: userIds[Math.floor(Math.random() * userIds.length)],
-          poi_name: selectedPoi.name,
-          lat: selectedPoi.loc.lat,
-          lng: selectedPoi.loc.lng,
-          visit_date: arrayOfDates[index],
-        };
-      });
-      console.log({ randomVisits });
     });
   });
 });

@@ -38,6 +38,3 @@
          </form>
       </div>
 <script type="text/javascript" src = "scripts/signUp.js"></script>
-<?php 
-include_once 'footer.php';
-?>

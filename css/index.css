@@ -125,7 +125,7 @@ nav #icon {
   position: absolute;
   top: 127px;
   width: 100%;
-  height: 56vh;
+  height: 57.3vh;
   z-index: 0;
   margin: 0px;
 }
@@ -389,7 +389,7 @@ tr:nth-child(even) {
   bottom: 0;
 }
 .containerfooter {
-  max-width: 1170px;
+  max-width: 1300px;
   margin: auto;
 }
 .row {
@@ -451,7 +451,7 @@ ul {
   padding: 3%;
 }
 .formfooter input {
-  width: 300px;
+  width: 122%;
   height: 45px;
   border-radius: 4px;
   text-align: center;
@@ -474,5 +474,5 @@ ul {
   border-radius: 100%;
 }
 .par {
-  font-size: 13px;
+  font-size: 14px;
 }
