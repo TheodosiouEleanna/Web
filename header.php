@@ -30,7 +30,7 @@
          if ($_SESSION["role"] == 0){
             echo  "<li><a  href='visitation.php'>visits</a></li>";
             echo "<li><a  href='covidCase.php'>covid case</a></li>";
-            echo "<li><a  href='visitInfo.php'>visit info</a></li>";
+            echo "<li><a  href='visitInfo.php'>visits info</a></li>";
             echo "<li><a href='profile.php'>Profile</a></li>";
          }
          else{

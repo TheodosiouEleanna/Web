@@ -8,7 +8,6 @@
                     <i class="fa fa-map-marker"></i>Patras, Achaia, Greece<br>
                     <i class="fa fa-envelope"></i>up1064886@upnet.com</p>
                     <br>
-                    <img src="img/pp.png" alt="University of Patras" width="265" height="105.2">
                 </ul>
             </div>
             <div class="footer-col col2">
@@ -27,6 +26,9 @@
                     <li><a href="#"><i class="fa fa-angle-left"></i>Contact</a></li>
                     <li><a href="#"><i class="fa fa-angle-left"></i>Privacy Policy</a></li>
                 </ul>
+            </div>
+            <div class="footer-col col4">
+                <img class="image" src="img/pp.png" alt="University of Patras" width="265" height="105.2">
             </div>
         </div>
         <br>

@@ -11,30 +11,49 @@ include_once 'header.php'
         <div class="one">
             <table id="data-table">
                 <tr>
-                    <th class="first-table">Covid Declaration Dates</th>
+                    <th class="column">Covid Declaration Dates</th>
                 </tr>
             </table>
         </div>
         <div class="two">
 			<table id="data-table2">
 				<tr>
-					<th class="first-column">Visited Stores</th>
-					<th class="second-column">Date</th>
+					<th class="column">Visited Stores</th>
+					
 				</tr>
 			</table>
 		</div>
-        <div class="three">
+		 <div class="three">
+            <table id="data-table">
+                <tr>
+                    <th class="column">Date</th>
+                </tr>
+            </table>
+        </div>
+        <div class="four">
 			<table id="data-table3">
 				<tr>
-					<th class="first-column">Stores Were There Was Reported Covid Case</th>
-					<th class="second-column">Date</th>
+					<th class="column">Stores Were There Was Reported Covid Case</th>
+					
+				</tr>
+			</table>
+		</div>
+		 <div class="five">
+			<table id="data-table3">
+				<tr>
+					<th class="column">Date</th>
 				</tr>
 			</table>
 		</div>
 	</div>
-<button class='but'>random visits button</button>
+<!-- <button class='but'> add random visits</button>
+<button class="ton">add random covid cases</button> -->
+
 </div>
-   <script src="scripts/randomVisits.js"></script>
+   <!-- <script src="scripts/randomVisits.js"></script>
+   <script src="scripts/randomCovidCases.js"></script> -->
+   <script src="scripts/theLastScript.js"></script>
+
 </body>
 <?php 
 include_once 'footer.php'
