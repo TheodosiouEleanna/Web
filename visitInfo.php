@@ -9,7 +9,7 @@ include_once 'header.php'
   margin-top: 50px">
     <div class="grid">
         <div class="one">
-            <table id="data-table">
+            <table id="data-table1">
                 <tr>
                     <th class="column">Covid Declaration Dates</th>
                 </tr>
@@ -18,20 +18,20 @@ include_once 'header.php'
         <div class="two">
 			<table id="data-table2">
 				<tr>
-					<th class="column">Visited Stores</th>
+					<th class="column visited-stores">Visited Stores</th>
 					
 				</tr>
 			</table>
 		</div>
 		 <div class="three">
-            <table id="data-table">
+            <table id="data-table3">
                 <tr>
                     <th class="column">Date</th>
                 </tr>
             </table>
         </div>
         <div class="four">
-			<table id="data-table3">
+			<table id="data-table4">
 				<tr>
 					<th class="column">Stores Were There Was Reported Covid Case</th>
 					
@@ -39,7 +39,7 @@ include_once 'header.php'
 			</table>
 		</div>
 		 <div class="five">
-			<table id="data-table3">
+			<table id="data-table5">
 				<tr>
 					<th class="column">Date</th>
 				</tr>
