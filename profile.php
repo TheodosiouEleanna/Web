@@ -5,7 +5,8 @@ include_once 'header.php'
    <title>Profile Page</title>
 </head>
 <body>
-   <div class="container">
+   <div class="container" style="
+  margin-top: 20px">
       <form id='form'>
          <div class="form-content">
             <div class="profile_form">

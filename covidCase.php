@@ -5,7 +5,8 @@ include_once 'header.php'
   <title>covidCase</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container" style="
+  margin-top: 50px">
       <form accept-charset="utf-8" id='form'>
          <div class="form-content">
             <div class="profile_form">
@@ -22,45 +23,7 @@ include_once 'header.php'
          </div>
          </div>
       </form>
-      
    </div>
-   <div class='container data-table'><button class='but'>button</button>
-<div class="page-wrapper">
-    <div class="grid">
-        <div class="one">
-            <table id="data-table">
-                <tr>
-                    <th>Covid Declaration Dates</th>
-                </tr>
-            </table>
-        </div>
-        <div class="two">
-			<table id="data-table2">
-				<tr>
-					<th>Visited Stores</th>
-					<th>Date</th>
-				</tr>
-			</table>
-		</div>
-        <div class="three">
-			<table id="data-table3">
-				<tr>
-					<th>Stores Were There Was Reported Covid Case</th>
-					<th>Date</th>
-				</tr>
-			</table>
-		</div>
-	</div>
-            <!-- <thread>
-                <tr>
-                    <th>Visited Stores</th>
-                    <th>Date</th>
-                    <th>Stores Were There Was Reported Covid Case</th>
-                    <th>Date</th>
-                </tr>
-            </thread> -->
-</div>
-</div>
    <script src="scripts/covidCase.js"></script>
    <script src="scripts/randomVisits.js"></script>
 </body>
