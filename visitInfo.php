@@ -23,7 +23,7 @@ include_once 'header.php'
 				</tr>
 			</table>
 		</div>
-		 <div class="three">
+		 <div class="three"> 
             <table id="data-table3">
                 <tr>
                     <th class="column">Date</th>

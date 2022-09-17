@@ -21,3 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
    print_r(json_encode($data)) ;
 }
 
+// SELECT poi_id, visit.user_id, poi_name, visit_date
+// FROM visit 
+// FULL OUTER JOIN
+//   (SELECT covid_date
+//    FROM  covid_case) ON visit.user_id = covid_case.user_id;
