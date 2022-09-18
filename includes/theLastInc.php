@@ -21,8 +21,4 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
    print_r(json_encode($data)) ;
 }
 
-// SELECT poi_id, visit.user_id, poi_name, visit_date
-// FROM visit 
-// FULL OUTER JOIN
-//   (SELECT covid_date
-//    FROM  covid_case) ON visit.user_id = covid_case.user_id;
+// SELECT poi_id, v.user_id, poi_name, visit_date, c.covid_date FROM visit as v INNER JOIN covid_case as c ON v.user_id = c.user_id AND v.visit_date BETWEEN c.covid_date AND DATE_ADD(c.covid_date, INTERVAL 7 DAY);

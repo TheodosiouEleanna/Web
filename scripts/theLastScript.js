@@ -11,6 +11,19 @@ const isDifGreaterThan = (declarationDate, previousDate, diffCondition) => {
   }
 };
 
+const isDifGreaterThan = (declarationDate, previousDate, diffCondition) => {
+  //7 days have passed?
+  console.log({ declarationDate, previousDate });
+  const diffInMs = declarationDate - previousDate;
+  const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  console.log("diff", diffInDays);
+  if (diffInDays <= diffCondition || diffInDays <= 0 || diffInDays === NaN) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
 $(document).ready(function () {
   let visits = [];
   let visitsWithCovidCases = [];

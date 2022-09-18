@@ -32,13 +32,13 @@ const checkForFutureDate = (date) => {
   }
 };
 
-const isDifGreaterThan14 = (declarationDate, previousDate) => {
+const isDifGreaterThan = (declarationDate, previousDate, diffCondition) => {
   const convertedDbDate = new Date(previousDate);
   //14 days have passed?
   const diffInMs = declarationDate - convertedDbDate;
   const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
   console.log("diff", diffInDays);
-  if (diffInDays <= 14 || diffInDays <= 0 || diffInDays === NaN) {
+  if (diffInDays <= diffCondition || diffInDays <= 0 || diffInDays === NaN) {
     return false;
   } else {
     return true;
@@ -66,8 +66,11 @@ $(document).ready(function () {
         if (dataObj.length) {
           const hasRecentCase = dataObj.some(
             (item) =>
-              isDifGreaterThan14(convertedDeclarationDate, item.covid_date) ===
-              false
+              isDifGreaterThan(
+                convertedDeclarationDate,
+                item.covid_date,
+                14
+              ) === false
           );
           console.log({ hasRecentCase }, typeof declarationDate);
           if (isFutureDate) {
