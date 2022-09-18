@@ -6,7 +6,7 @@ include_once 'header.php'
 </head>
 <body>
    <div class="container" style="
-  margin-top: 20px">
+  margin-top: 50px">
       <form id='form'>
          <div class="form-content">
             <div class="profile_form">
@@ -41,5 +41,5 @@ include_once 'header.php'
 </body>
 
 <?php 
-include_once 'footer.php'
+// include_once 'footer.php'
 ?>

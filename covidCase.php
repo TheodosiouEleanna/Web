@@ -27,5 +27,5 @@ include_once 'header.php'
    <script src="scripts/covidCase.js"></script>
 </body>
 <?php 
-include_once 'footer.php'
+// include_once 'footer.php'
 ?>

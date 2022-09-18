@@ -6,5 +6,5 @@ include_once 'header.php'
 </head>
 <script src="scripts/graphs.js"></script>
 <?php 
-include_once 'footer.php'
+// include_once 'footer.php'
 ?>

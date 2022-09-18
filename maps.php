@@ -13,5 +13,5 @@ include_once 'header.php'
       <script src="scripts/mapSearch.js"></script>
 </body>
 <?php 
-include_once 'footer.php'
+// include_once 'footer.php'
 ?>

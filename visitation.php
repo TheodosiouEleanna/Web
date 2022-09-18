@@ -18,5 +18,5 @@ include_once 'header.php'
    <script src="scripts/visit.js"></script>
 </body>
 <?php 
-include_once 'footer.php'
+// include_once 'footer.php'
 ?>

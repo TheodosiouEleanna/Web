@@ -16,5 +16,5 @@ include_once 'header.php';
       <div id = "map"></div>
       <script src="scripts/initialmap.js"></script>
 <?php 
-include_once 'footer.php';
+// include_once 'footer.php';
 ?>

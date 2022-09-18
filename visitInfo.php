@@ -8,14 +8,14 @@ include_once 'header.php'
  <div class='container data-table' style="
   margin-top: 50px">
     <div class="grid">
-        <div class="one">
+        <div class="general-table one">
             <table id="data-table1">
                 <tr>
                     <th class="column">Covid Declaration Dates</th>
                 </tr>
             </table>
         </div>
-        <div class="two">
+        <div class="general-table two">
 			<table id="data-table2">
 				<tr>
 					<th class="column visited-stores">Visited Stores</th>
@@ -23,14 +23,14 @@ include_once 'header.php'
 				</tr>
 			</table>
 		</div>
-		 <div class="three"> 
+		 <div class="general-table three"> 
             <table id="data-table3">
                 <tr>
                     <th class="column">Date</th>
                 </tr>
             </table>
         </div>
-        <div class="four">
+        <div class="general-table four">
 			<table id="data-table4">
 				<tr>
 					<th class="column">Stores Were There Was Reported Covid Case</th>
@@ -38,7 +38,7 @@ include_once 'header.php'
 				</tr>
 			</table>
 		</div>
-		 <div class="five">
+		 <div class="general-table five">
 			<table id="data-table5">
 				<tr>
 					<th class="column">Date</th>
@@ -56,5 +56,5 @@ include_once 'header.php'
 
 </body>
 <?php 
-include_once 'footer.php'
+// include_once 'footer.php'
 ?>

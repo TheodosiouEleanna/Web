@@ -125,7 +125,7 @@ nav #icon {
   position: absolute;
   top: 127px;
   width: 100%;
-  height: 60.5vh;
+  height: 85.2vh;
   z-index: 0;
   margin: 0px;
 }
@@ -350,7 +350,10 @@ th {
   gap: 1px;
   grid-auto-rows: minmax(100px, auto);
 }
-
+.general-table {
+  overflow-y: scroll;
+  height: 54%;
+}
 .one {
   grid-row: 1/5;
 }
@@ -371,7 +374,7 @@ th {
 }
 .data-table {
   max-width: 73%;
-  height: 50vh;
+  height: 75vh;
   justify-content: flex-start;
 }
 .footerside {

@@ -1,4 +1,23 @@
-// L= leaflet library class object
+function deg2rad(deg) {
+  return deg * (Math.PI / 180);
+}
+
+function getDistance(lat1, lon1, lat2, lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2 - lat1); // deg2rad below
+  var dLon = deg2rad(lon2 - lon1);
+  var a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(deg2rad(lat1)) *
+      Math.cos(deg2rad(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c; // Distance in km
+  return d;
+}
+
+// L= leaflet library class objectan
 //get the date for the current user
 var current_date = new Date();
 console.log(current_date);
@@ -36,7 +55,7 @@ if ("geolocation" in navigator) {
     const lat = position.coords.latitude;
     const lng = position.coords.longitude;
     // console.log(position);
-    let singleMarker = L.marker([38.2362409, 21.7303368], { icon: blue }).addTo(
+    let singleMarker = L.marker([38.246081, 21.73507], { icon: blue }).addTo(
       map
     );
     map.setView([38.2362409, 21.7303368], 14); //setView(latitude, longitude, zoom level),setView call also returns the map object
@@ -48,7 +67,11 @@ if ("geolocation" in navigator) {
         lng.toString() +
         "<br>"
     );
-    // singleMarker.bindPopup(popupContent);
+    singleMarker.bindPopup(popupContent);
+    singleMarker.openPopup();
+    marker.on("mouseover", (e) => {
+      e.target.openPopup();
+    });
     markers.addLayer(singleMarker);
   });
 } else {
@@ -175,8 +198,8 @@ function searchByAjax(text, callResponse) {
             }
             if (
               getDistance(
-                38.2362409,
-                21.7303368,
+                38.246081,
+                21.73507,
                 response[i].loc.lat,
                 response[i].loc.lng
               ) <= 0.2
@@ -243,34 +266,4 @@ function handleSubmit(response, i, num, event) {
 function calcPop(pop) {
   est = Math.round(pop.reduce((a, b) => a + b) / pop.length);
   return est;
-}
-
-// function dateFormat(current_date){
-//   cuurent_date = current_date.getUTCFullYear() + '-' +
-//     ('00' + (current_date.getUTCMonth()+1)).slice(-2) + '-' +
-//     ('00' + current_date.getUTCDate()).slice(-2) + ' ' +
-//     ('00' + current_date.getUTCHours()).slice(-2) + ':' +
-//     ('00' + current_date.getUTCMinutes()).slice(-2) + ':' +
-//     ('00' + current_date.getUTCSeconds()).slice(-2);
-// }
-
-const deg2rad = (deg) => (deg * Math.PI) / 180.0;
-
-function getDistance(lat1, lon1, lat2, lon2) {
-  var R = 6371; // Radius of the earth in km
-  var dLat = deg2rad(lat2 - lat1); // deg2rad below
-  var dLon = deg2rad(lon2 - lon1);
-  var a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(deg2rad(lat1)) *
-      Math.cos(deg2rad(lat2)) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  var d = R * c; // Distance in km
-  return d;
-}
-
-function deg2rad(deg) {
-  return deg * (Math.PI / 180);
 }

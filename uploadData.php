@@ -22,5 +22,5 @@ include_once 'header.php';
       
       <script src="scripts/dataMan.js"></script>
 <?php
-include_once 'footer.php';
+// include_once 'footer.php';
 ?>
